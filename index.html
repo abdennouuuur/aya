@@ -24,7 +24,7 @@
             background-color: #ff69b4;
             color: white;
         }
-        .bigger {
+        #yesButton.bigger {
             font-size: 18px;
         }
     </style>
@@ -38,7 +38,7 @@
     </div>
 
     <div id="response" class="hidden">
-        <img id="dogImage" src="" alt="Dog Image" style="width: 5000px; height: 10000px;">
+        <img id="dogImage" src="" alt="Dog Image" style="width: 200px; height: 200px;">
         <h2 id="responseText"></h2>
         <div id="nextStep" class="hidden">
             <p id="nextText">Can I ask youuu?</p>
@@ -47,6 +47,8 @@
     </div>
 
     <script>
+        let fontSize = 16;
+
         function handleYesClick() {
             document.getElementById('question').classList.add('hidden');
             document.getElementById('dogImage').src = 'https://example.com/happy-puppy.jpg'; // Replace with actual URL
@@ -57,7 +59,8 @@
 
         function handleNoClick() {
             document.getElementById('question').classList.add('hidden');
-            document.getElementById('dogImage').src = 'https://github.com/abdennouuuur/aya/blob/main/Angry%20dog%20.png?raw=true'
+            document.getElementById('dogImage').src = 'https://example.com/angry-dog.jpg'; // Replace with actual URL
+            document.getElementById('responseText').innerText = 'Noooooobody is better than Aya';
             document.getElementById('response').classList.remove('hidden');
         }
 
@@ -75,20 +78,24 @@
 
         function handleYeahClick() {
             document.getElementById('nextText').innerText = 'Did you really mean it? Cuz if I remember you said that you don\'t date';
-            document.querySelector('#nextStep button').outerHTML = '<button class="button" onclick="handleYesGoOutClick()">Yes, I do wanna go out with you</button><button class="button" onclick="handleOopsClick()">Oops, I thought it was a joke</button>';
+            document.querySelector('#nextStep button').outerHTML = `
+                <button id="yesButton" class="button" onclick="handleYesGoOutClick()">Yes, I do wanna go out with you</button>
+                <button class="button" onclick="handleOopsClick()">Oops, I thought it was a joke</button>`;
         }
 
         function handleOopsClick() {
             document.getElementById('nextText').innerText = 'Noooooo';
-            let yesButton = document.querySelector('button[onclick="handleYesGoOutClick()"]');
-            yesButton.classList.add('bigger');
+            let yesButton = document.querySelector('#yesButton');
+            fontSize += 2;
+            yesButton.style.fontSize = fontSize + 'px';
             document.querySelector('button[onclick="handleOopsClick()"]').outerHTML = '<button class="button" onclick="handlePleaaaaseClick()">Pleaaaaase</button>';
         }
 
         function handlePleaaaaseClick() {
             document.getElementById('nextText').innerText = 'Pleaaaaase';
-            let yesButton = document.querySelector('button[onclick="handleYesGoOutClick()"]');
-            yesButton.classList.add('bigger');
+            let yesButton = document.querySelector('#yesButton');
+            fontSize += 2;
+            yesButton.style.fontSize = fontSize + 'px';
             document.querySelector('button[onclick="handlePleaaaaseClick()"]').outerHTML = '<button class="button" onclick="handlePleaaaaseClick()">Pleaaaaase</button>';
         }
 
