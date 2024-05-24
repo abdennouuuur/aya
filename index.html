@@ -51,7 +51,7 @@
 
         function handleYesClick() {
             document.getElementById('question').classList.add('hidden');
-            document.getElementById('dogImage').src = 'https://github.com/abdennouuuur/aya/blob/main/love-doggo.gif?raw=true';
+            document.getElementById('dogImage').src = 'https://example.com/happy-puppy.jpg'; // Replace with actual URL
             document.getElementById('responseText').innerText = 'Welcomeee';
             document.getElementById('response').classList.remove('hidden');
             document.getElementById('nextStep').classList.remove('hidden');
@@ -59,7 +59,8 @@
 
         function handleNoClick() {
             document.getElementById('question').classList.add('hidden');
-            document.getElementById('dogImage').src = 'https://github.com/abdennouuuur/aya/blob/main/Angry%20dog%20.png?raw=true';
+            document.getElementById('dogImage').src = 'https://example.com/angry-dog.jpg'; // Replace with actual URL
+            document.getElementById('responseText').innerText = 'Noooooobody is better than Aya';
             document.getElementById('response').classList.remove('hidden');
         }
 
@@ -83,21 +84,23 @@
         }
 
         function handleOopsClick() {
+            document.getElementById('nextText').innerText = 'Noooooo';
             let yesButton = document.querySelector('#yesButton');
             fontSize += 2;
             yesButton.style.fontSize = fontSize + 'px';
-            document.querySelector('button[onclick="handleOopsClick()"]').outerHTML = '<button class="button" onclick="handleAreYouSureClick()">Are you sure?</button>';
+            document.querySelector('button[onclick="handleOopsClick()"]').outerHTML = '<button class="button" onclick="handlePleaaaaseClick()">Pleaaaaase</button>';
         }
 
-        function handleAreYouSureClick() {
+        function handlePleaaaaseClick() {
+            document.getElementById('nextText').innerText = 'Pleaaaaase';
             let yesButton = document.querySelector('#yesButton');
             fontSize += 2;
             yesButton.style.fontSize = fontSize + 'px';
-            document.querySelector('button[onclick="handleAreYouSureClick()"]').outerHTML = '<button class="button" onclick="handleAreYouSureClick()">Are you sure?</button>';
+            document.querySelector('button[onclick="handlePleaaaaseClick()"]').outerHTML = '<button class="button" onclick="handlePleaaaaseClick()">Pleaaaaase</button>';
         }
 
         function handleYesGoOutClick() {
-            document.getElementById('dogImage').src = 'https://github.com/abdennouuuur/aya/blob/main/kiss.gif?raw=true';
+            document.getElementById('dogImage').src = 'https://example.com/happy-puppy.jpg'; // Replace with actual URL
             document.getElementById('responseText').innerText = 'Yayyyyy, I love you so muuuuuuch';
             document.getElementById('nextStep').classList.add('hidden');
         }
